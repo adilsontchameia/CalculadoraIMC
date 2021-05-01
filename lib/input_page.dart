@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+//Constantes
+const bottomContainerHeight = 75.0;
+const corAtivada = Color(0xFF1D1E33);
+const buttonColor = Color(0xFFEB1555);
+//
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -10,7 +16,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("BMI CALCULATOR"),
+        title: Text("CALCULADORA DE IMC"),
       ),
       body: Column(
         children: [
@@ -19,12 +25,12 @@ class _HomeState extends State<Home> {
               children: [
                 Expanded(
                   child: ResuableCode(
-                    color: Color(0xFF1D1E33),
+                    color: corAtivada,
                   ),
                 ),
                 Expanded(
                   child: ResuableCode(
-                    color: Color(0xFF1D1E33),
+                    color: corAtivada,
                   ),
                 )
               ],
@@ -32,21 +38,26 @@ class _HomeState extends State<Home> {
           ),
           Expanded(
               child: ResuableCode(
-            color: Color(0xFF1D1E33),
+            color: corAtivada,
           )),
           Expanded(
             child: Row(
               children: [
                 Expanded(
                     child: ResuableCode(
-                  color: Color(0xFF1D1E33),
+                  color: corAtivada,
                 )),
                 Expanded(
-                    child: ResuableCode(
-                  color: Color(0xFF1D1E33),
-                ))
+                  child: ResuableCode(color: corAtivada),
+                ),
               ],
             ),
+          ),
+          Container(
+            color: buttonColor,
+            margin: EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: bottomContainerHeight,
           ),
         ],
       ),
