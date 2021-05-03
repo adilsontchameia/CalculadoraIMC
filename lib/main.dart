@@ -10,6 +10,7 @@ class BMICalculator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Home(),
+      debugShowCheckedModeBanner: false,
       //Especificar tudo que quero mudar
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xFF0A0E21),

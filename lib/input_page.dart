@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //Constantes
 const bottomContainerHeight = 75.0;
@@ -26,26 +27,19 @@ class _HomeState extends State<Home> {
                 Expanded(
                   child: ResuableCode(
                     color: corAtivada,
-                    cardChild: Column(
-                      children: [
-                        Icon(size: 80.0),
-                        SizedBox(
-                          height: 15.0,
-                        ),
-                        Text(
-                          "MASCULINO",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xFF8D8E98),
-                          ),
-                        )
-                      ],
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.male,
+                      text: "Masculino",
                     ),
                   ),
                 ),
                 Expanded(
                   child: ResuableCode(
                     color: corAtivada,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.female,
+                      text: "Feminino",
+                    ),
                   ),
                 )
               ],
@@ -76,6 +70,35 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class IconContent extends StatelessWidget {
+  IconContent({@required this.icon, this.text});
+  final IconData icon;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          icon,
+          size: 80.0,
+        ),
+        SizedBox(
+          height: 15.0,
+        ),
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 18,
+            color: Color(0xFF8D8E98),
+          ),
+        )
+      ],
     );
   }
 }
