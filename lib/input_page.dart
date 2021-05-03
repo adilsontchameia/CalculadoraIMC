@@ -7,7 +7,10 @@ import 'package:ibm_calculator/Resuable_card.dart';
 const bottomContainerHeight = 75.0;
 const corAtivada = Color(0xFF1D1E33);
 const buttonColor = Color(0xFFEB1555);
-//
+const inactiveCardColor = Color(0xFF111328);
+const String title = "CALCULADORA DE IMC";
+//Enum
+enum Gender { male, female }
 
 class Home extends StatefulWidget {
   @override
@@ -15,11 +18,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Gender selecterGender;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("CALCULADORA DE IMC"),
+        title: Text(title),
       ),
       body: Column(
         children: [
@@ -34,20 +39,38 @@ class _HomeState extends State<Home> {
             child: Row(
               children: [
                 Expanded(
-                  child: ResuableCode(
-                    color: corAtivada,
-                    cardChild: IconContent(
-                      icon: FontAwesomeIcons.male,
-                      text: "Masculino",
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selecterGender = Gender.male;
+                      });
+                    },
+                    child: ResuableCode(
+                      color: selecterGender == Gender.male
+                          ? corAtivada
+                          : inactiveCardColor,
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.male,
+                        text: "Masculino",
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: ResuableCode(
-                    color: corAtivada,
-                    cardChild: IconContent(
-                      icon: FontAwesomeIcons.female,
-                      text: "Feminino",
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selecterGender = Gender.female;
+                      });
+                    },
+                    child: ResuableCode(
+                      color: selecterGender == Gender.male
+                          ? inactiveCardColor
+                          : corAtivada,
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.female,
+                        text: "Feminino",
+                      ),
                     ),
                   ),
                 )
