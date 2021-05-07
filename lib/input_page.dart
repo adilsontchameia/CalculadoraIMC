@@ -18,6 +18,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  //Valores dos Generos
   Gender selecterGender;
 
   @override
