@@ -8,7 +8,7 @@ const bottomContainerHeight = 75.0;
 const corAtivada = Color(0xFF1D1E33);
 const buttonColor = Color(0xFFEB1555);
 const inactiveCardColor = Color(0xFF111328);
-const String title = "CALCULADORA DE IMC";
+const String title = "CALCULADORA DE IMC FLUTTER";
 //Enum
 enum Gender { male, female }
 
@@ -18,7 +18,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  //Valores dos Generos
   Gender selecterGender;
 
   @override
