@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
                           : inactiveCardColor,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.male,
-                        text: "Masculino",
+                        text: "MASCULINO",
                       ),
                     ),
                   ),
@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
                           : corAtivada,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.female,
-                        text: "Feminino",
+                        text: "FEMININO",
                       ),
                     ),
                   ),
