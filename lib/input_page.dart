@@ -14,6 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Gender selecterGender;
+  int height = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -73,17 +74,36 @@ class _HomeState extends State<Home> {
               child: ResuableCode(
             color: corAtivada,
             cardChild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "ALTURA",
                   style: labelTextStyle,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
-                    Text("120", style: sliderText),
-                    Text("cm"),
+                    Text(height.toString(), style: sliderText),
+                    Text(
+                      "cm",
+                      style: labelTextStyle,
+                    ),
                   ],
-                )
+                ),
+                Slider(
+                  value: height.toDouble(),
+                  min: 100.0,
+                  max: 220.0,
+                  activeColor: Color(0xFFEB1555),
+                  inactiveColor: Color(0xFFBDBE98),
+                  onChanged: (double newValue) {
+                    setState(() {
+                      height = newValue.toInt();
+                    });
+                  },
+                ),
               ],
             ),
           )),
