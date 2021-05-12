@@ -92,17 +92,25 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                Slider(
-                  value: height.toDouble(),
-                  min: 100.0,
-                  max: 220.0,
-                  activeColor: Color(0xFFEB1555),
-                  inactiveColor: Color(0xFFBDBE98),
-                  onChanged: (double newValue) {
-                    setState(() {
-                      height = newValue.toInt();
-                    });
-                  },
+                SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                    thumbColor: Color(0xFFEB1555),
+                    activeTickMarkColor: Colors.white,
+                    overlayColor: Color(0x29EB1555),
+                    inactiveTrackColor: Color(0xFFBDBE98),
+                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                    overlayShape: RoundSliderOverlayShape(overlayRadius: 25.0),
+                  ),
+                  child: Slider(
+                    value: height.toDouble(),
+                    min: 100.0,
+                    max: 220.0,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue.toInt();
+                      });
+                    },
+                  ),
                 ),
               ],
             ),
