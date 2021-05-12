@@ -8,7 +8,7 @@ const bottomContainerHeight = 75.0;
 const corAtivada = Color(0xFF1D1E33);
 const buttonColor = Color(0xFFEB1555);
 const inactiveCardColor = Color(0xFF111328);
-const String title = "CALCULADORA DE IMC FLUTTER";
+const String title = "IMC";
 //Enum
 enum Gender { male, female }
 
@@ -39,38 +39,34 @@ class _HomeState extends State<Home> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ResuableCode(
+                    onPressed: () {
                       setState(() {
                         selecterGender = Gender.male;
                       });
                     },
-                    child: ResuableCode(
-                      color: selecterGender == Gender.male
-                          ? corAtivada
-                          : inactiveCardColor,
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.male,
-                        text: "MASCULINO",
-                      ),
+                    color: selecterGender == Gender.male
+                        ? corAtivada
+                        : inactiveCardColor,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.male,
+                      text: "MASCULINO",
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ResuableCode(
+                    onPressed: () {
                       setState(() {
                         selecterGender = Gender.female;
                       });
                     },
-                    child: ResuableCode(
-                      color: selecterGender == Gender.male
-                          ? inactiveCardColor
-                          : corAtivada,
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.female,
-                        text: "FEMININO",
-                      ),
+                    color: selecterGender == Gender.male
+                        ? inactiveCardColor
+                        : corAtivada,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.female,
+                      text: "FEMININO",
                     ),
                   ),
                 )
