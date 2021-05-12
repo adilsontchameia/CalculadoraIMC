@@ -2,13 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ibm_calculator/Icon_content.dart';
 import 'package:ibm_calculator/Resuable_card.dart';
+import 'constants.dart';
 
-//Constantes
-const bottomContainerHeight = 75.0;
-const corAtivada = Color(0xFF1D1E33);
-const buttonColor = Color(0xFFEB1555);
-const inactiveCardColor = Color(0xFF111328);
-const String title = "IMC";
 //Enum
 enum Gender { male, female }
 
@@ -27,6 +22,7 @@ class _HomeState extends State<Home> {
         title: Text(title),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             "GÊNERO",
@@ -76,6 +72,20 @@ class _HomeState extends State<Home> {
           Expanded(
               child: ResuableCode(
             color: corAtivada,
+            cardChild: Column(
+              children: [
+                Text(
+                  "ALTURA",
+                  style: labelTextStyle,
+                ),
+                Row(
+                  children: [
+                    Text("120", style: sliderText),
+                    Text("cm"),
+                  ],
+                )
+              ],
+            ),
           )),
           Expanded(
             child: Row(
