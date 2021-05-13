@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
   Gender selecterGender;
   int height = 100;
   int weight = 60;
-
+  int age = 19;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,11 +137,21 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           RoundIconButton(
-                            icon: FontAwesomeIcons.plus,
+                            icon: FontAwesomeIcons.minus,
+                            onPressed: () {
+                              setState(() {
+                                weight--;
+                              });
+                            },
                           ),
                           SizedBox(width: 10.0),
                           RoundIconButton(
-                            icon: FontAwesomeIcons.minus,
+                            icon: FontAwesomeIcons.plus,
+                            onPressed: () {
+                              setState(() {
+                                weight++;
+                              });
+                            },
                           ),
                         ],
                       ),
@@ -149,7 +159,44 @@ class _HomeState extends State<Home> {
                   ),
                 )),
                 Expanded(
-                  child: ResuableCode(color: corAtivada),
+                  child: ResuableCode(
+                    color: corAtivada,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "AGE",
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: sliderText,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(width: 10.0),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -167,13 +214,16 @@ class _HomeState extends State<Home> {
 }
 
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton({this.icon});
+  //Construtor
+  RoundIconButton({this.icon, this.onPressed});
+  //Atributos
   final IconData icon;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       elevation: 6.0,
       constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
