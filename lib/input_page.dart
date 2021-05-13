@@ -15,6 +15,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Gender selecterGender;
   int height = 100;
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -121,6 +122,31 @@ class _HomeState extends State<Home> {
                 Expanded(
                     child: ResuableCode(
                   color: corAtivada,
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "WEIGHT",
+                        style: labelTextStyle,
+                      ),
+                      Text(
+                        weight.toString(),
+                        style: sliderText,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus,
+                          ),
+                          SizedBox(width: 10.0),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.minus,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 )),
                 Expanded(
                   child: ResuableCode(color: corAtivada),
@@ -139,3 +165,22 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({this.icon});
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: () {},
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+      fillColor: Color(0xFF4C4F5E),
+      child: Icon(icon),
+    );
+  }
+}
+
+//shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
