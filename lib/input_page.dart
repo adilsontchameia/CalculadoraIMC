@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ibm_calculator/Icon_content.dart';
 import 'package:ibm_calculator/Resuable_card.dart';
 import 'constants.dart';
+import 'file:///media/adilsonchameia/380ebb70-e1ce-49a4-a173-cb807e826f29/adilsonchameia/Projetos/cursoAngela/ibm_calculator/componentes/buttom.dart';
+import 'file:///media/adilsonchameia/380ebb70-e1ce-49a4-a173-cb807e826f29/adilsonchameia/Projetos/cursoAngela/ibm_calculator/componentes/icons_round.dart';
 
 //Enum
 enum Gender { male, female }
@@ -201,42 +203,12 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/result');
-            },
-            child: Container(
-              child:
-                  Center(child: Text("Calcular", style: largButtonTextStyle)),
-              color: buttonColor,
-              margin: EdgeInsets.only(top: 10.0),
-              padding: EdgeInsets.only(bottom: 5.0),
-              width: double.infinity,
-              height: bottomContainerHeight,
-            ),
+          BottomButton(
+            onTap: () => Navigator.pushNamed(context, '/result'),
+            buttonTitle: 'CALCULAR',
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  //Construtor
-  RoundIconButton({this.icon, this.onPressed});
-  //Atributos
-  final IconData icon;
-  final Function onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      elevation: 6.0,
-      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      fillColor: Color(0xFF4C4F5E),
-      child: Icon(icon),
     );
   }
 }

@@ -24,3 +24,21 @@ const sliderText = TextStyle(
 
 const largButtonTextStyle =
     TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold);
+
+const titleResult = TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold);
+
+const resultText = TextStyle(
+  color: Color(0xFF24D876),
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
+
+const bmiText = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+);
+
+const bodyText = TextStyle(
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
