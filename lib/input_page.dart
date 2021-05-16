@@ -206,9 +206,11 @@ class _HomeState extends State<Home> {
               Navigator.pushNamed(context, '/result');
             },
             child: Container(
-              child: Text("Calcular"),
+              child:
+                  Center(child: Text("Calcular", style: largButtonTextStyle)),
               color: buttonColor,
               margin: EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.only(bottom: 5.0),
               width: double.infinity,
               height: bottomContainerHeight,
             ),
